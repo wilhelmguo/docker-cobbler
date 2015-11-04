@@ -19,9 +19,6 @@ then
 elif [ ! $DHCP_DNS ]
 then
         echo "Please use $DHCP_DNS set the dhcp dns."
-elif [ ! $ISO_PATH ]
-then
-        echo "Please use $DHCP_DNS set the dhcp dns."
 else
         PASSWORD=`openssl passwd -1 -salt hLGoLIZR $ROOT_PASSWORD`
         sed -i "s/^server: 127.0.0.1/server: $SERVER_IP/g" /etc/cobbler/settings
@@ -33,7 +30,6 @@ else
         sed -i "s/192.168.1.5/$DHCP_ROUTER/" /etc/cobbler/dhcp.template
         sed -i "s/192.168.1.1;/$DHCP_DNS;/" /etc/cobbler/dhcp.template
         sed -i "s/192.168.1.100 192.168.1.254/$DHCP_RANGE/" /etc/cobbler/dhcp.template
-        sed -i "s/192.168.1.100 192.168.1.254/$DHCP_RANGE/" /etc/cobbler/dnsmasq.template
         rm -rf /run/httpd/*
         /usr/sbin/apachectl
         /usr/bin/cobblerd
