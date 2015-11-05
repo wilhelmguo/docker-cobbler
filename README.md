@@ -3,8 +3,8 @@
 ###启动前准备：  
 **请先挂载系统镜像，不然容器内看不到系统镜像**：（挂载到/mnt下）  
   把iso文件放入/opt/iso 文件夹下，执行import-iso.sh可以自动挂载所有镜像
-  mount -t iso9660 -o loop,ro /opt/iso/centos.iso /mnt/centos
-  mount -t iso9660 -o loop,ro /opt/iso/ubuntu.iso /mnt/ubuntu
+  mount -t iso9660 -o loop,ro /opt/iso/centos.iso /mnt/centos  
+  mount -t iso9660 -o loop,ro /opt/iso/ubuntu.iso /mnt/ubuntu 
 ### 安装说明
 - 机器已经正确安装好docker
 - 机器正确链接到互联网
