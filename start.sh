@@ -19,9 +19,6 @@ then
 elif [ ! $DHCP_DNS ]
 then
         echo "Please use $DHCP_DNS set the dhcp dns."
-elif [ ! $ISO_NAME ]
-then
-        echo "Please use $ISO_NAME set the iso name."
 else
         PASSWORD=`openssl passwd -1 -salt hLGoLIZR $ROOT_PASSWORD`
         sed -i "s/^server: 127.0.0.1/server: $SERVER_IP/g" /etc/cobbler/settings
@@ -38,7 +35,12 @@ else
         rm -rf /run/httpd/*
         /usr/sbin/apachectl
         /usr/bin/cobblerd
+
+        if [ $ISO_NAME ]
+        then
         cobbler import  --path=/mnt --name=$ISO_NAME
+        fi
+        
         cobbler sync > /dev/null 2>&1
 
         pkill cobblerd
