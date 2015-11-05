@@ -36,11 +36,6 @@ else
         /usr/sbin/apachectl
         /usr/bin/cobblerd
 
-        if [ $ISO_NAME ]
-        then
-        cobbler import  --path=/mnt --name=$ISO_NAME
-        fi
-        
         cobbler sync > /dev/null 2>&1
 
         pkill cobblerd
