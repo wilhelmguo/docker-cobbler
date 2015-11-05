@@ -2,7 +2,7 @@
 这是一个运行在docker里的cobbler平台。
 ###启动前准备：  
 **请先挂载系统镜像，不然容器内看不到系统镜像**：（挂载到/mnt下）  
-  把iso文件放入/opt/iso 文件夹下，执行import-iso.sh可以自动挂载所有镜像
+  把iso文件放入/opt/iso 文件夹下，执行import-iso.sh可以自动挂载所有镜像 
   mount -t iso9660 -o loop,ro /opt/iso/centos.iso /mnt/centos  
   mount -t iso9660 -o loop,ro /opt/iso/ubuntu.iso /mnt/ubuntu 
 ### 安装说明
