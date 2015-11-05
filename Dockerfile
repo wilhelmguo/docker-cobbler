@@ -10,7 +10,7 @@ RUN rpm -Uvh ftp://rpmfind.net/linux/epel/6/x86_64/debmirror-2.14-2.el6.noarch.r
 RUN yum -y install cobbler tftp-server dhcp openssl pykickstart fence-agents cobbler-web
 
 RUN apachectl ; cobblerd ; cobbler get-loaders ; pkill cobblerd ; pkill httpd
-
+COPY ./rsync /etc/xinetd.d/rsync
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 

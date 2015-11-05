@@ -19,6 +19,9 @@ then
 elif [ ! $DHCP_DNS ]
 then
         echo "Please use $DHCP_DNS set the dhcp dns."
+elif [ ! $ISO_NAME ]
+then
+        echo "Please use $ISO_NAME set the iso name."
 else
         PASSWORD=`openssl passwd -1 -salt hLGoLIZR $ROOT_PASSWORD`
         sed -i "s/^server: 127.0.0.1/server: $SERVER_IP/g" /etc/cobbler/settings
@@ -30,10 +33,12 @@ else
         sed -i "s/192.168.1.5/$DHCP_ROUTER/" /etc/cobbler/dhcp.template
         sed -i "s/192.168.1.1;/$DHCP_DNS;/" /etc/cobbler/dhcp.template
         sed -i "s/192.168.1.100 192.168.1.254/$DHCP_RANGE/" /etc/cobbler/dhcp.template
+        sed -i "s/@dists/# @dists/" /etc/debmirror.conf
+        sed -i "s/@arches/# @arches/" /etc/debmirror.conf
         rm -rf /run/httpd/*
         /usr/sbin/apachectl
         /usr/bin/cobblerd
-
+        cobbler import  --path=/mnt --name=$ISO_NAME
         cobbler sync > /dev/null 2>&1
 
         pkill cobblerd
