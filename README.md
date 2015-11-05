@@ -22,12 +22,12 @@ $ sudo docker build -t docker/cobbler .
 ```
 
 变量说明：共有7个变量：  
-  **SERVER_IP**:指定本机内网卡的IP地址  **必填** 
-  **DHCP_RANGE**：指定批量装机需要获取的IP地址段  **必填** 
-  **ROOT_PASSWORD**：指定批量装机后系统默认的root密码  **必填** 
-  **DHCP_SUBNET**：指定DHCP的网段  **必填** 
-  **DHCP_ROUTER**：指定DHCP的网管  **必填** 
-  **DHCP_DNS**：指定DHCP的DNS地址  **必填** 
+  **SERVER_IP**:指定本机内网卡的IP地址  **必填**   
+  **DHCP_RANGE**：指定批量装机需要获取的IP地址段  **必填**  
+  **ROOT_PASSWORD**：指定批量装机后系统默认的root密码  **必填**  
+  **DHCP_SUBNET**：指定DHCP的网段  **必填**  
+  **DHCP_ROUTER**：指定DHCP的网管  **必填**  
+  **DHCP_DNS**：指定DHCP的DNS地址  **必填**  
 
 **3.进入已经启动的Doker容器**
 ``` shell
