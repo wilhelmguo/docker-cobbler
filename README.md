@@ -21,7 +21,7 @@ $ sudo docker build -t docker/cobbler .
   docker run -d -e SERVER_IP=192.168.2.8 -e DHCP_RANGE="192.168.2.230 192.168.2.235" -e ROOT_PASSWORD=cobbler -e DHCP_SUBNET=192.168.2.0 -e DHCP_ROUTER=192.168.2.1 -e DHCP_DNS=223.5.5.5  --name cobbler --net host -v /mnt:/mnt:ro cobbler
 ```
 
-变量说明：共有7个变量：  
+变量说明：共有6个变量：  
   **SERVER_IP**:指定本机内网卡的IP地址  **必填**   
   **DHCP_RANGE**：指定批量装机需要获取的IP地址段  **必填**  
   **ROOT_PASSWORD**：指定批量装机后系统默认的root密码  **必填**  
